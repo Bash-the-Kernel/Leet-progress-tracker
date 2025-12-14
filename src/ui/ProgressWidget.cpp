@@ -127,3 +127,5 @@ void ProgressWidget::updateStreakInfo() {
     streakLabel_->setText(QString("Streak: %1 days").arg(streak));
     totalCompletedLabel_->setText(QString("Total Completed: %1").arg(totalCompleted));
 }
+
+#include "ProgressWidget.moc"

@@ -202,3 +202,5 @@ void ProblemWidget::onCategoryFilterChanged() {
         }
     }
 }
+
+#include "ProblemWidget.moc"

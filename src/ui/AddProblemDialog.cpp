@@ -106,3 +106,5 @@ bool AddProblemDialog::validateInput() {
     
     return true;
 }
+
+#include "AddProblemDialog.moc"

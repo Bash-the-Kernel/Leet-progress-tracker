@@ -173,3 +173,5 @@ void StatisticsWidget::exportToCsv() {
     file.close();
     QMessageBox::information(this, "Export Complete", QString("Statistics exported to:\n%1").arg(fileName));
 }
+
+#include "StatisticsWidget.moc"

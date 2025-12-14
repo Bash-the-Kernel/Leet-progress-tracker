@@ -194,3 +194,5 @@ QString TimerWidget::formatTime(int seconds) const {
     int secs = seconds % 60;
     return QString("%1:%2").arg(minutes).arg(secs, 2, 10, QChar('0'));
 }
+
+#include "TimerWidget.moc"
