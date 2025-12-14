@@ -4,6 +4,7 @@
 #include <QDate>
 #include <vector>
 #include <memory>
+#include <map>
 
 class ProblemDatabase {
 public:

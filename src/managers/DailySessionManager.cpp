@@ -117,3 +117,5 @@ void DailySessionManager::updateProblemTime(int problemId, int seconds) {
         ProblemDatabase::instance().updateProblem(*problem);
     }
 }
+
+#include "DailySessionManager.moc"

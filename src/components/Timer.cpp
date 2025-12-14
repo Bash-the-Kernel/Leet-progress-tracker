@@ -51,3 +51,5 @@ void Timer::onTimeout() {
         emit finished();
     }
 }
+
+#include "Timer.moc"

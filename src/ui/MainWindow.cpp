@@ -170,3 +170,5 @@ void MainWindow::refreshProblemList() {
         problemWidget_->loadAllProblems();
     }
 }
+
+#include "MainWindow.moc"

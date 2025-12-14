@@ -97,6 +97,36 @@ bool ProblemDatabase::updateProblem(const Problem& problem) {
     return query.exec();
 }
 
+bool ProblemDatabase::deleteProblem(int id) {
+    QSqlQuery query(db_);
+    query.prepare("DELETE FROM problems WHERE id = ?");
+    query.addBindValue(id);
+    return query.exec();
+}
+
+std::unique_ptr<Problem> ProblemDatabase::getProblem(int id) {
+    QSqlQuery query(db_);
+    query.prepare("SELECT * FROM problems WHERE id = ?");
+    query.addBindValue(id);
+    query.exec();
+    
+    if (query.next()) {
+        auto problem = std::make_unique<Problem>(
+            query.value("id").toInt(),
+            query.value("title").toString(),
+            query.value("url").toString(),
+            static_cast<Difficulty>(query.value("difficulty").toInt())
+        );
+        
+        problem->setCategory(static_cast<Category>(query.value("category").toInt()));
+        problem->setStatus(static_cast<CompletionStatus>(query.value("status").toInt()));
+        
+        return problem;
+    }
+    
+    return nullptr;
+}
+
 std::vector<std::unique_ptr<Problem>> ProblemDatabase::getAllProblems() {
     std::vector<std::unique_ptr<Problem>> problems;
     QSqlQuery query("SELECT * FROM problems", db_);
@@ -214,3 +244,5 @@ std::map<Difficulty, int> ProblemDatabase::getDifficultyStats() {
     
     return stats;
 }
+
+#include "ProblemDatabase.moc"
