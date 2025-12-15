@@ -43,7 +43,7 @@ qt6_add_resources(LeetProgressTracker "resources"
         resources/styles.qss
 )
 
-target_link_libraries(LeetProgressTracker Qt6::Core Qt6::Widgets Qt6::Sql)
+target_link_libraries(LeetProgressTracker PRIVATE Qt6::Core Qt6::Widgets Qt6::Sql)
 
 # Platform-specific settings
 if(WIN32)

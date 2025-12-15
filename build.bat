@@ -5,9 +5,16 @@ REM Create build directory
 if not exist build mkdir build
 cd build
 
+REM Clear previous CMake cache
+if exist CMakeCache.txt del CMakeCache.txt
+if exist CMakeFiles rmdir /s /q CMakeFiles
+
+REM Add MinGW to PATH
+set PATH=C:\Qt\Tools\mingw1310_64\bin;%PATH%
+
 REM Configure with CMake (adjust Qt path as needed)
 echo Configuring with CMake...
-cmake .. -DCMAKE_PREFIX_PATH="C:\Qt\6.5.0\msvc2019_64"
+cmake .. -G "MinGW Makefiles" -DCMAKE_PREFIX_PATH="C:\Qt\6.10.1\mingw_64"
 
 if %ERRORLEVEL% neq 0 (
     echo CMake configuration failed!
