@@ -9,6 +9,8 @@
 #include "../components/Timer.h"
 #include <memory>
 
+class QSoundEffect;
+
 class TimerWidget : public QWidget {
     Q_OBJECT
 

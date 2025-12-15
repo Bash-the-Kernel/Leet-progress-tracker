@@ -1,5 +1,6 @@
 #include "TimerWidget.h"
 #include <QMessageBox>
+#include <QApplication>
 
 TimerWidget::TimerWidget(QWidget* parent)
     : QWidget(parent), isBreakMode_(false), elapsedSeconds_(0) {
@@ -113,6 +114,9 @@ void TimerWidget::onTimeChanged(int remainingSeconds) {
 }
 
 void TimerWidget::onTimerFinished() {
+    // Play system beep
+    QApplication::beep();
+    
     if (isBreakMode_) {
         QMessageBox::information(this, "Break Over", "Break time is over! Ready to continue?");
         isBreakMode_ = false;

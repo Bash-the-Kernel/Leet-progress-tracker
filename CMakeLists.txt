@@ -41,6 +41,7 @@ qt6_add_resources(LeetProgressTracker "resources"
     PREFIX "/"
     FILES
         resources/styles.qss
+        resources/timer_sound.wav
 )
 
 target_link_libraries(LeetProgressTracker PRIVATE Qt6::Core Qt6::Widgets Qt6::Sql)
